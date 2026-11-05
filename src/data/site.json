@@ -6,8 +6,8 @@
   "linkedin": "https://linkedin.com/in/alejocardozo",
   "github": "https://github.com/alejoC19",
   "city": "Buenos Aires, Argentina",
-  "title": "Alejo Cardozo — Sistemas de gestión a medida",
-  "description": "Desarrollo sistemas de gestión, automatizaciones administrativas y cartas digitales para negocios argentinos. Vengo del área contable: construyo software entendiendo el circuito que tiene que resolver.",
+  "title": "Resolvemos IT — Sistemas de gestión a medida",
+  "description": "Resolvemos IT desarrolla sistemas de gestión, automatizaciones administrativas y cartas digitales para negocios argentinos. Software hecho a la medida de cómo trabaja tu negocio.",
   "stats": [
     {
       "n": "3",
@@ -44,7 +44,7 @@
       "id": "clubos",
       "n": "01",
       "kind": "Producto SaaS",
-      "title": "ClubOS",
+      "title": "PadelApp2",
       "lead": "Gestión integral para clubes de pádel.",
       "text": "Agenda de canchas, reservas, caja, buffet, tesorería y reportes. Cada club trabaja por separado dentro de la misma plataforma, y sus jugadores reservan desde el celular.",
       "points": [
@@ -56,7 +56,8 @@
       "video": "clubos-agendar",
       "ratio": "wide",
       "note": "Agendado real, base de datos propia",
-      "tone": "lav"
+      "tone": "lav",
+      "url": "https://padelapp2.com"
     },
     {
       "id": "gestion",
@@ -64,15 +65,17 @@
       "kind": "Sistema de escritorio · en uso",
       "title": "Gestión administrativa y contable",
       "lead": "Para una empresa de servicios con varias sedes.",
-      "text": "Un sistema que se usa todos los días y reemplazó planillas sueltas. Concentra los cobros, las transferencias y las cuentas corrientes, y deja la conciliación lista para el cierre.",
+      "text": "Un sistema que se usa todos los días en una empresa de servicios con varias sedes y reemplazó las planillas sueltas. Ordena el padrón de clientes, las cuentas corrientes, la tesorería y los cobros, y deja la conciliación lista para el cierre.",
       "points": [
-        "Cobros con tarjeta, transferencias y cuentas corrientes",
-        "Conciliación y tesorería",
-        "Reportes listos para el cierre",
-        "Armado junto a quienes lo usan todos los días"
+        "Padrón de clientes importado desde el ERP",
+        "Transferencias recibidas identificadas por CUIT",
+        "Comisiones bancarias y cobros con tarjeta por sede",
+        "Tablero de deuda y reportes Excel y PDF para gerencia"
       ],
-      "visual": "modules",
-      "tone": "peach"
+      "tone": "peach",
+      "video": "gestion-demo",
+      "note": "Datos inventados",
+      "capL": "Recreación de la interfaz"
     },
     {
       "id": "automatizacion",
@@ -198,5 +201,6 @@
     }
   ],
   "phone": "5492273418842",
-  "phoneDisplay": "+54 9 2273 41-8842"
+  "phoneDisplay": "+54 9 2273 41-8842",
+  "brand": "Resolvemos IT"
 }

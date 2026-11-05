@@ -1,9 +1,9 @@
 ---
 import '../styles/global.css';
 import site from '../data/site.json';
-const wa = site.whatsapp ? `https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Hola Alejo, vi tu portfolio y quiero consultarte por un sistema.')}` : '';
-const mail = `mailto:${site.email}?subject=${encodeURIComponent('Consulta desde tu portfolio')}`;
-const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.name, jobTitle: site.role, email: site.email, address: { '@type': 'PostalAddress', addressLocality: 'Buenos Aires', addressCountry: 'AR' }, sameAs: [site.linkedin, site.github] };
+const wa = site.whatsapp ? `https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Hola, vi Resolvemos IT y quiero consultar por un sistema.')}` : '';
+const mail = `mailto:${site.email}?subject=${encodeURIComponent('Consulta desde Resolvemos IT')}`;
+const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: site.brand, founder: site.name, description: site.description, email: site.email, address: { '@type': 'PostalAddress', addressLocality: 'Buenos Aires', addressCountry: 'AR' }, sameAs: [site.linkedin] };
 ---
 <!doctype html>
 <html lang="es-AR">
@@ -25,7 +25,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
 </head>
 <body>
   <header class="nav"><div class="wrap in">
-    <a class="logo" href="#top">{site.name}</a>
+    <a class="logo" href="#top">{site.brand}</a>
     <nav aria-label="Principal"><ul>
       <li><a href="#que">Qué hago</a></li><li><a href="#trabajos">Trabajos</a></li><li><a href="#cartas">Cartas</a></li><li><a href="#contacto">Contacto</a></li>
     </ul></nav>
@@ -44,9 +44,9 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
       </div>
       <div class="hero-stage" data-hero>
         <div class="hero-vid" data-hero-vid>
-          <video src="/media/clubos-agendar.mp4" poster="/media/clubos-agendar.jpg" muted loop playsinline preload="metadata" aria-label="Agenda de canchas de ClubOS en funcionamiento"></video>
+          <video src="/media/clubos-agendar.mp4" poster="/media/clubos-agendar.jpg" muted loop playsinline preload="metadata" aria-label="Agenda de canchas de PadelApp2 en funcionamiento"></video>
         </div>
-        <div class="wrap hero-cap"><span class="mono">ClubOS · agendando un turno, en vivo</span><span class="mono">Datos de ejemplo</span></div>
+        <div class="wrap hero-cap"><span class="mono">PadelApp2 · agendando un turno, en vivo</span><span class="mono">Datos de ejemplo</span></div>
       </div>
     </section>
 
@@ -75,7 +75,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
                 <div>
                   <div class="win clk" data-open={p.id} role="button" tabindex="0" aria-label={`Abrir ${p.title}`}><div class="win-bar"><i></i><i></i><i></i><span class="mono">{p.title}</span></div>
                     <video src={`/media/${p.video}.mp4`} poster={`/media/${p.video}.jpg`} muted loop playsinline preload="none" data-lazyvid aria-label={`${p.title} en funcionamiento`}></video></div>
-                  <p class="cap mono"><span>Grabación real</span><span>{p.note}</span></p>
+                  <p class="cap mono"><span>{p.capL ?? 'Grabación real'}</span><span>{p.note}</span></p>
                 </div>
               )}
               {p.visual === 'modules' && (
@@ -148,14 +148,13 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
         <div><dt class="mono">Celular y WhatsApp</dt><dd><a href={`tel:+${site.phone}`}>{site.phoneDisplay}</a></dd></div>
         <div><dt class="mono">Correo</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div>
         <div><dt class="mono">LinkedIn</dt><dd><a href={site.linkedin} target="_blank" rel="noopener">linkedin.com/in/alejocardozo</a></dd></div>
-        <div><dt class="mono">GitHub</dt><dd><a href={site.github} target="_blank" rel="noopener">github.com/alejoC19</a></dd></div>
         <div><dt class="mono">Ubicación</dt><dd>{site.city}</dd></div>
       </dl>
       <footer class="foot">
-        <div><strong>{site.name}</strong><p class="mono" style="margin:.5rem 0 0">{site.role}</p></div>
+        <div><strong>{site.brand}</strong><p class="mono" style="margin:.5rem 0 0">{site.role} · {site.name}</p></div>
         <nav aria-label="Pie"><a href="#que">Qué hago</a><a href="#trabajos">Trabajos</a><a href="#cartas">Cartas</a><a href="#contacto">Contacto</a></nav>
-        <div class="fc"><a href={`tel:+${site.phone}`}>{site.phoneDisplay}</a><a href={`mailto:${site.email}`}>{site.email}</a><a href={site.linkedin} target="_blank" rel="noopener">LinkedIn</a><a href={site.github} target="_blank" rel="noopener">GitHub</a></div>
-        <p class="mono copy">© 2026 {site.name} · {site.city} · Los datos de las demos son de ejemplo</p>
+        <div class="fc"><a href={`tel:+${site.phone}`}>{site.phoneDisplay}</a><a href={`mailto:${site.email}`}>{site.email}</a><a href={site.linkedin} target="_blank" rel="noopener">LinkedIn</a><a href={site.github} target="_blank" rel="noopener">GitHub · alejoC19</a></div>
+        <p class="mono copy">© 2026 {site.brand} · {site.name} · {site.city} · Los datos de las demos son de ejemplo</p>
       </footer>
     </div></section>
   </main>
