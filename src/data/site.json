@@ -81,32 +81,41 @@
       "id": "automatizacion",
       "n": "03",
       "kind": "Automatización",
-      "title": "De documento sucio a dato limpio",
+      "title": "Excel que se concilia solo",
       "lead": "Lo que se copiaba a mano ahora sale solo.",
-      "text": "Los extractos bancarios en PDF pasan a Excel, se unifican los de distintos bancos y se generan los archivos para presentaciones impositivas. Hoy se carga a mano; con esto sale solo.",
+      "text": "Se pega el extracto del banco y la lista de comprobantes, y el Excel hace el resto: asigna cada movimiento a su comprobante, marca lo que no identifica, separa los gastos bancarios y arma el tablero. También convierto extractos de PDF a Excel y genero los archivos para presentaciones impositivas.",
       "points": [
-        "Extractos de varios bancos en un único formato",
-        "Archivos listos para presentar, sin carga manual",
-        "Menos errores de tipeo en el cierre"
+        "Concilia cada movimiento con su comprobante",
+        "Marca lo conciliado, lo sin identificar y los gastos bancarios",
+        "Tablero con importes y gráfico, sin tocar fórmulas",
+        "Se puede descargar el Excel de ejemplo"
       ],
-      "visual": "convert",
-      "tone": "mint"
+      "visual": "excel",
+      "tone": "mint",
+      "download": {
+        "href": "/conciliacion-bancaria-ejemplo.xlsx",
+        "label": "Descargar el Excel"
+      },
+      "capL": "Excel de ejemplo",
+      "note": "Datos inventados"
     },
     {
       "id": "finora",
       "n": "04",
       "kind": "Producto SaaS",
       "title": "Finora",
-      "lead": "ERP para pymes argentinas.",
-      "text": "Cuentas a cobrar y a pagar, ciclos de clientes y compras, importador de movimientos bancarios y un algoritmo de matching que propone la conciliación. Un dashboard consolida todo.",
+      "lead": "El panel financiero de una pyme argentina.",
+      "text": "Por cobrar, por pagar y posición de caja en una sola pantalla. Cada cliente tiene su ficha con antigüedad de deuda, riesgo de mora e historial, y la tesorería proyecta el saldo y avisa antes de quedarse sin fondos.",
       "points": [
-        "Cuentas a cobrar y a pagar",
-        "Carga de movimientos del banco",
-        "Sugerencia automática de conciliación",
-        "Tablero con todo consolidado"
+        "Tablero con por cobrar, por pagar, caja y vencidos",
+        "Ficha de cada cliente con riesgo de mora y antigüedad de la deuda",
+        "Conciliación de movimientos bancarios con sus comprobantes",
+        "Proyección de caja con alerta de quiebre",
+        "Centro de importaciones desde Excel, CSV y sistemas contables"
       ],
-      "visual": "match",
-      "tone": "sky"
+      "tone": "sky",
+      "video": "finora",
+      "note": "Datos de muestra"
     },
     {
       "id": "huellar",

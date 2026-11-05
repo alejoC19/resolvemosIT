@@ -69,6 +69,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
               <p class="t">{p.text}</p>
               <ul class="pts">{p.points.map((x) => <li>{x}</li>)}</ul>
               <button class="more-btn" type="button" data-open={p.id}>Ver el trabajo <span aria-hidden="true">→</span></button>
+              {p.download && <a class="more-btn alt" href={p.download.href} download>{p.download.label} <span aria-hidden="true">↓</span></a>}
             </div>
             <div class="pv" data-pv={p.visual ?? 'video'}>
               {p.video && (
@@ -85,6 +86,11 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
                     <div class="mod-panel"><div class="bar" style="--w:92%"></div><div class="bar" style="--w:61%"></div><div class="bar" style="--w:78%"></div><div class="bar" style="--w:44%"></div><div class="bar" style="--w:85%"></div><div class="bar" style="--w:33%"></div><div class="bar" style="--w:70%"></div></div>
                   </div></div></div>
                   <p class="cap mono"><span>Esquema de módulos</span><span>El sistema real es de uso interno</span></p></div>
+              )}
+              {p.visual === 'excel' && (
+                <div><div class="win clk" data-open={p.id} role="button" tabindex="0" aria-label={`Abrir ${p.title}`}><div class="win-bar"><i></i><i></i><i></i><span class="mono">conciliacion-bancaria.xlsx</span></div>
+                  <div class="xl"><img src="/media/excel-resumen.jpg" alt="Hoja Resumen del Excel de conciliación" loading="lazy" /><img src="/media/excel-extracto.jpg" alt="Hoja Extracto con los movimientos conciliados" loading="lazy" /></div></div>
+                  <p class="cap mono"><span>{p.capL}</span><span>{p.note}</span></p></div>
               )}
               {p.visual === 'convert' && (
                 <div><div class="win clk" data-open={p.id} role="button" tabindex="0" aria-label={`Abrir ${p.title}`}><div class="win-bar"><i></i><i></i><i></i><span class="mono">Conversor</span></div>
@@ -164,7 +170,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
     <div class="det-in"><div class="det-media" id="det-media"></div><div class="det-body" id="det-body"></div></div>
   </dialog>
   <script type="application/json" id="items" set:html={JSON.stringify({ mail: site.email, items: [
-    ...site.projects.map((p) => ({ id: p.id, kind: p.kind, title: p.title, lead: p.lead, text: p.text, points: p.points, stack: '', video: p.video ?? null, url: p.url ?? null })),
+    ...site.projects.map((p) => ({ id: p.id, kind: p.kind, title: p.title, lead: p.lead, text: p.text, points: p.points, stack: '', video: p.video ?? null, url: p.url ?? null, dl: p.download ?? null })),
     ...site.cartas.map((c) => ({ id: c.id, kind: 'Carta digital con QR', title: c.name, lead: 'Carta para el celular.', text: c.text, points: ['Foto de cada plato', 'Buscador y filtros', 'Versión en inglés', 'Precios que se cambian desde el celular'], stack: '', video: c.video, url: c.url, phone: true })),
     ...site.more.map((m) => ({ id: m.id, kind: m.k, title: m.t, lead: '', text: m.d, points: m.points, stack: '', video: null, url: null })),
   ] })} />
@@ -242,7 +248,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
       document.querySelectorAll<SVGPathElement>('[data-l]').forEach(() => {});
     }
     // Detalle de cada trabajo
-    type Item = { id: string; kind: string; title: string; lead: string; text: string; points: string[]; stack: string; video: string | null; url?: string | null; phone?: boolean };
+    type Item = { id: string; kind: string; title: string; lead: string; text: string; points: string[]; stack: string; video: string | null; url?: string | null; phone?: boolean; dl?: { href: string; label: string } | null };
     const raw = JSON.parse(document.getElementById('items')!.textContent!) as { mail: string; items: Item[] };
     const byId = new Map(raw.items.map((i) => [i.id, i]));
     const dlg = document.getElementById('det') as HTMLDialogElement;
@@ -269,7 +275,8 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
       const ul = el('ul', 'pts'); it.points.forEach((x) => ul.append(el('li', undefined, x))); bodyEl.append(ul);
       const btns = el('div', 'btns');
       if (it.url) { const a = el('a', 'btn p', 'Ver en vivo ↗') as HTMLAnchorElement; a.href = it.url; a.target = '_blank'; a.rel = 'noopener'; btns.append(a); }
-      const m = el('a', it.url ? 'btn' : 'btn p', 'Quiero algo así') as HTMLAnchorElement;
+      if (it.dl) { const d = el('a', 'btn p', it.dl.label + ' ↓') as HTMLAnchorElement; d.href = it.dl.href; d.download = ''; btns.append(d); }
+      const m = el('a', it.url || it.dl ? 'btn' : 'btn p', 'Quiero algo así') as HTMLAnchorElement;
       m.href = `mailto:${raw.mail}?subject=${encodeURIComponent('Consulta: algo como ' + it.title)}`; btns.append(m);
       bodyEl.append(btns);
       lenis?.stop(); dlg.showModal();
