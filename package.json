@@ -1,0 +1,16 @@
+{
+  "name": "alejo-cardozo-portfolio",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": { "dev": "astro dev", "build": "astro build", "preview": "astro preview" },
+  "dependencies": {
+    "@fontsource-variable/jetbrains-mono": "^5.2.0",
+    "@fontsource-variable/schibsted-grotesk": "^5.2.0",
+    "@tailwindcss/vite": "^4.1.0",
+    "astro": "^5.14.0",
+    "gsap": "^3.13.0",
+    "lenis": "^1.3.0",
+    "tailwindcss": "^4.1.0"
+  }
+}

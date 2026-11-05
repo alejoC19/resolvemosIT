@@ -1,0 +1,236 @@
+---
+import '../styles/global.css';
+import site from '../data/site.json';
+const wa = site.whatsapp ? `https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Hola Alejo, vi tu portfolio y quiero consultarte por un sistema.')}` : '';
+const mail = `mailto:${site.email}?subject=${encodeURIComponent('Consulta desde tu portfolio')}`;
+const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.name, jobTitle: site.role, email: site.email, address: { '@type': 'PostalAddress', addressLocality: 'Buenos Aires', addressCountry: 'AR' }, sameAs: [site.linkedin, site.github] };
+---
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{site.title}</title>
+  <meta name="description" content={site.description} />
+  <meta name="theme-color" content="#0a0b0d" />
+  <meta property="og:title" content={site.title} />
+  <meta property="og:description" content={site.description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/media/clubos-agenda.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0b0d'/%3E%3Cpath d='M8 23 16 8l8 15' stroke='%23ff5b1f' stroke-width='3' fill='none'/%3E%3C/svg%3E" />
+  <link rel="preload" as="image" href="/media/clubos-agenda.jpg" fetchpriority="high" />
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+  <script is:inline>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <header class="nav"><div class="wrap in">
+    <a class="logo" href="#top">{site.name}</a>
+    <nav aria-label="Principal"><ul>
+      <li><a href="#que">Qué hago</a></li><li><a href="#trabajos">Trabajos</a></li><li><a href="#cartas">Cartas</a></li><li><a href="#contacto">Contacto</a></li>
+    </ul></nav>
+  </div></header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-top">
+        <p class="mono rv">{site.role} · {site.city}</p>
+        <h1 class="display h-xl rv" style="margin:1.2rem 0 0">Software que reemplaza <span class="acc">la planilla.</span></h1>
+        <div class="hero-meta rv">
+          <p class="lead" style="margin:0">Sistemas de gestión, automatizaciones administrativas y cartas digitales para negocios argentinos. Vengo del área contable, y se nota en cómo están armados.</p>
+          <div class="stats">{site.stats.map((s) => <div><b>{s.n}</b><span>{s.l}</span></div>)}</div>
+        </div>
+      </div>
+      <div class="hero-stage" data-hero>
+        <div class="hero-vid" data-hero-vid>
+          <video src="/media/clubos-agenda.mp4" poster="/media/clubos-agenda.jpg" muted loop playsinline preload="metadata" aria-label="Agenda de canchas de ClubOS en funcionamiento"></video>
+        </div>
+        <div class="wrap hero-cap"><span class="mono">ClubOS · agenda de canchas</span><span class="mono">Datos de ejemplo</span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="que"><div class="wrap">
+      <div class="sec-head"><h2 class="display h-lg rv" style="margin:0">Tres cosas que hago bien.</h2><p class="mono rv">01 — Qué hago</p></div>
+      {site.services.map((s, i) => (
+        <article class="svc rv"><span class="mono">0{i + 1}</span><h3>{s.t}</h3><div><p>{s.d}</p><span class="k">{s.k}</span></div></article>
+      ))}
+    </div></section>
+
+    <section id="trabajos" aria-label="Trabajos">
+      <div class="wrap" style="padding-top:clamp(2rem,5vw,4rem);padding-bottom:2rem"><p class="mono">02 — Trabajos</p></div>
+      {site.projects.map((p) => (
+        <article class="proj" id={p.id}>
+          <div class="wrap proj-in">
+            <div>
+              <p class="mono">{p.n} · {p.kind}</p>
+              <h3 class="display h-lg">{p.title}</h3>
+              <p class="lede">{p.lead}</p>
+              <p class="t">{p.text}</p>
+              <ul class="pts">{p.points.map((x) => <li>{x}</li>)}</ul>
+              <p class="stk">{p.stack}</p>
+            </div>
+            <div class="pv" data-pv={p.visual ?? 'video'}>
+              {p.video && (
+                <div>
+                  <div class="win"><div class="win-bar"><i></i><i></i><i></i><span class="mono">{p.title}</span></div>
+                    <video src={`/media/${p.video}.mp4`} poster={`/media/${p.video}.jpg`} muted loop playsinline preload="none" data-lazyvid aria-label={`${p.title} en funcionamiento`}></video></div>
+                  <p class="cap mono"><span>Grabación real</span><span>{p.note}</span></p>
+                </div>
+              )}
+              {p.visual === 'modules' && (
+                <div><div class="win"><div class="win-bar"><i></i><i></i><i></i><span class="mono">Sistema de gestión</span></div>
+                  <div class="sch"><div class="mod-grid">
+                    <div class="mod-list"><div>Cobros con tarjeta</div><div>Transferencias recibidas</div><div>Cuentas corrientes</div><div>Conciliación</div><div>Tesorería</div><div>Reportes</div></div>
+                    <div class="mod-panel"><div class="bar" style="--w:92%"></div><div class="bar" style="--w:61%"></div><div class="bar" style="--w:78%"></div><div class="bar" style="--w:44%"></div><div class="bar" style="--w:85%"></div><div class="bar" style="--w:33%"></div><div class="bar" style="--w:70%"></div></div>
+                  </div></div></div>
+                  <p class="cap mono"><span>Esquema de módulos</span><span>El sistema real es de uso interno</span></p></div>
+              )}
+              {p.visual === 'convert' && (
+                <div><div class="win"><div class="win-bar"><i></i><i></i><i></i><span class="mono">Conversor</span></div>
+                  <div class="sch"><div class="docs">
+                    <div class="doc"><h4>extracto.pdf</h4><div class="row ghost"><span>03/11 TRANSF REC</span><span>184.500,00</span></div><div class="row ghost"><span>03/11 COMISION</span><span>-1.240,00</span></div><div class="row ghost"><span>04/11 DEP EFVO</span><span>96.000,00</span></div><div class="row ghost"><span>04/11 IMP DB/CR</span><span>-612,30</span></div></div>
+                    <div class="arr" aria-hidden="true">→</div>
+                    <div class="doc"><h4>unificado.xlsx</h4><div class="row hit"><span>2025-11-03 · Banco A</span><span>184500.00</span></div><div class="row hit"><span>2025-11-03 · Banco A</span><span>-1240.00</span></div><div class="row hit"><span>2025-11-04 · Banco B</span><span>96000.00</span></div><div class="row hit"><span>2025-11-04 · Banco B</span><span>-612.30</span></div></div>
+                  </div></div></div>
+                  <p class="cap mono"><span>Ejemplo ilustrativo</span><span>Datos inventados</span></p></div>
+              )}
+              {p.visual === 'match' && (
+                <div><div class="win"><div class="win-bar"><i></i><i></i><i></i><span class="mono">Conciliación</span></div>
+                  <div class="sch"><div class="pair" data-pair>
+                    <svg aria-hidden="true"><path data-l /><path data-l /><path data-l /></svg>
+                    <div class="doc"><h4>Banco</h4><div class="row" data-a><span>03/11</span><span>$ 184.500</span></div><div class="row" data-a><span>04/11</span><span>$ 96.000</span></div><div class="row" data-a><span>05/11</span><span>$ 51.300</span></div></div>
+                    <div class="doc"><h4>Comprobantes</h4><div class="row" data-b><span>FC 0001-0412</span><span>$ 184.500</span></div><div class="row" data-b><span>FC 0001-0415</span><span>$ 96.000</span></div><div class="row" data-b><span>FC 0001-0419</span><span>$ 51.300</span></div></div>
+                  </div></div></div>
+                  <p class="cap mono"><span>Ejemplo ilustrativo</span><span>Datos inventados</span></p></div>
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="cartas" id="cartas" data-cartas>
+      <div class="cartas-pin" data-cartas-pin>
+        <div class="wrap cartas-head">
+          <h2 class="display h-lg" style="margin:0">Cartas digitales<br />con QR.</h2>
+          <div><p class="lead" style="margin:0 0 .8rem">Fotos de cada plato, buscador, filtros, inglés y precios que se cambian desde el celular.</p><p class="mono">05 — Cuatro estilos, cuatro identidades</p></div>
+        </div>
+        <div class="track" data-track>
+          {site.cartas.map((c) => (
+            <figure class="phone" style="margin:0"><div class="fr"><video src={`/media/${c.video}.mp4`} poster={`/media/${c.video}.jpg`} muted loop playsinline preload="none" data-lazyvid aria-label={`Carta digital: ${c.name}`}></video></div><figcaption class="mono">{c.name}</figcaption></figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sec"><div class="wrap">
+      <div class="sec-head"><h2 class="display h-lg rv" style="margin:0">Y más.</h2><p class="mono rv">06 — Otros proyectos</p></div>
+      <div class="more">
+        <div class="win rv"><div class="win-bar"><i></i><i></i><i></i><span class="mono">Huellar</span></div>
+          <video src="/media/huellar.mp4" poster="/media/huellar.jpg" muted loop playsinline preload="none" data-lazyvid aria-label="Huellar, mapa de lugares pet friendly"></video></div>
+        <div>{site.more.map((m) => <div class="card rv"><span class="mono">{m.k}</span><h4>{m.t}</h4><p>{m.d}</p></div>)}</div>
+      </div>
+    </div></section>
+
+    <section class="sec" style="padding-top:0"><div class="wrap">
+      <div class="sec-head"><h2 class="display h-lg rv" style="margin:0">Cómo trabajo.</h2><p class="mono rv">07 — Proceso</p></div>
+      <div class="proc" data-proc><div class="proc-line"><i data-proc-fill></i></div>
+        {site.process.map((s) => <div class="step rv"><h4>{s.t}</h4><p>{s.d}</p></div>)}
+      </div>
+    </div></section>
+
+    <section class="sec" style="padding-top:0"><div class="wrap">
+      <p class="mono rv" style="margin-bottom:1.2rem">08 — Con qué trabajo</p>
+      <div class="tags rv">{site.stack.map((t) => <span>{t}</span>)}</div>
+    </div></section>
+
+    <section class="contact" id="contacto"><div class="wrap">
+      <p class="mono rv">09 — Contacto</p>
+      <h2 class="display h-xl rv" style="margin:1rem 0 2rem">¿Qué se hace a mano en tu negocio?</h2>
+      <a class="mail rv" href={mail}>{site.email}</a>
+      <div class="btns rv">
+        {wa && <a class="btn p" href={wa} target="_blank" rel="noopener">Escribir por WhatsApp</a>}
+        <a class={wa ? 'btn' : 'btn p'} href={mail}>Enviar un correo</a>
+        <a class="btn" href={site.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href={site.github} target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="foot"><span class="mono">{site.name} · {site.city}</span><span class="mono">Los datos de las demos son de ejemplo</span></div>
+    </div></section>
+  </main>
+
+  <script>
+    import gsap from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    import Lenis from 'lenis';
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Videos: solo se reproducen los que están a la vista
+    const vids = [...document.querySelectorAll<HTMLVideoElement>('video')];
+    const io = new IntersectionObserver((es) => es.forEach((e) => {
+      const v = e.target as HTMLVideoElement;
+      if (e.isIntersecting) { v.play().catch(() => {}); } else v.pause();
+    }), { rootMargin: '120px' });
+    vids.forEach((v) => io.observe(v));
+
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      const lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((t) => lenis.raf(t * 1000));
+      gsap.ticker.lagSmoothing(0);
+
+      // Aparición
+      gsap.utils.toArray<HTMLElement>('.rv').forEach((el) => {
+        gsap.to(el, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+      });
+
+      // Portada: el video crece hasta ocupar toda la pantalla
+      const hv = document.querySelector<HTMLElement>('[data-hero-vid]')!;
+      gsap.fromTo(hv, { clipPath: 'inset(6% 14% 6% 14% round 18px)' }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'none',
+        scrollTrigger: { trigger: '[data-hero]', start: 'top 85%', end: 'top 5%', scrub: true } });
+      gsap.fromTo('[data-hero-vid] video', { scale: 1.12 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '[data-hero]', start: 'top 85%', end: 'top 5%', scrub: true } });
+
+      // Línea del proceso
+      gsap.to('[data-proc-fill]', { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '[data-proc]', start: 'top 70%', end: 'bottom 70%', scrub: true } });
+
+      // Esquema de conciliación: líneas que unen cada par
+      const pair = document.querySelector<HTMLElement>('[data-pair]');
+      if (pair) {
+        const draw = () => {
+          const pr = pair.getBoundingClientRect();
+          const A = [...pair.querySelectorAll<HTMLElement>('[data-a]')], B = [...pair.querySelectorAll<HTMLElement>('[data-b]')];
+          const paths = [...pair.querySelectorAll<SVGPathElement>('[data-l]')];
+          paths.forEach((p, i) => {
+            const a = A[i].getBoundingClientRect(), b = B[i].getBoundingClientRect();
+            const x1 = a.right - pr.left, y1 = a.top + a.height / 2 - pr.top, x2 = b.left - pr.left, y2 = b.top + b.height / 2 - pr.top, m = (x1 + x2) / 2;
+            p.setAttribute('d', `M${x1} ${y1} C${m} ${y1} ${m} ${y2} ${x2} ${y2}`);
+            const len = p.getTotalLength(); p.style.strokeDasharray = String(len); p.style.strokeDashoffset = String(len);
+          });
+          return paths;
+        };
+        const paths = draw();
+        gsap.to(paths, { strokeDashoffset: 0, duration: 0.9, stagger: 0.35, ease: 'power2.inOut', scrollTrigger: { trigger: pair, start: 'top 75%', once: true } });
+      }
+
+      // Proyectos apilados: el panel anterior se aleja al llegar el siguiente
+      gsap.matchMedia().add('(min-width: 900px)', () => {
+        const panels = gsap.utils.toArray<HTMLElement>('.proj');
+        panels.slice(0, -1).forEach((p, i) => {
+          gsap.to(p.querySelector('.proj-in'), { scale: 0.94, opacity: 0.35, ease: 'none',
+            scrollTrigger: { trigger: panels[i + 1], start: 'top bottom', end: 'top top', scrub: true } });
+        });
+
+        // Cartas: recorrido horizontal fijado
+        const track = document.querySelector<HTMLElement>('[data-track]')!;
+        const pin = document.querySelector<HTMLElement>('[data-cartas-pin]')!;
+        const dist = () => track.scrollWidth - innerWidth;
+        gsap.to(track, { x: () => -dist(), ease: 'none',
+          scrollTrigger: { trigger: pin, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.6, invalidateOnRefresh: true } });
+      });
+    } else {
+      document.querySelectorAll<SVGPathElement>('[data-l]').forEach(() => {});
+    }
+    addEventListener('load', () => ScrollTrigger.refresh());
+  </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+{
+  "name": "Alejo Cardozo",
+  "role": "Desarrollo de software a medida",
+  "email": "alejoagustinc19@gmail.com",
+  "whatsapp": "",
+  "linkedin": "https://linkedin.com/in/alejocardozo",
+  "github": "https://github.com/alejoC19",
+  "city": "Buenos Aires, Argentina",
+  "title": "Alejo Cardozo — Sistemas de gestión a medida",
+  "description": "Desarrollo sistemas de gestión, automatizaciones administrativas y cartas digitales para negocios argentinos. Vengo del área contable: construyo software entendiendo el circuito que tiene que resolver.",
+  "stats": [
+    { "n": "3", "l": "productos SaaS multi-tenant" },
+    { "n": "4", "l": "cartas digitales con QR" },
+    { "n": "1", "l": "sistema propio en uso diario" }
+  ],
+  "services": [
+    { "t": "Gestión", "d": "Caja, cuentas corrientes, tesorería, cobros y reportes en un solo sistema, con roles y trazabilidad. Para reemplazar planillas que ya no alcanzan.", "k": "Cuentas a cobrar y a pagar · Conciliación · Reportes" },
+    { "t": "Automatización", "d": "Tareas administrativas repetitivas que hoy se hacen a mano: pasar extractos de PDF a Excel, unificar bancos, generar archivos con formato fijo para presentaciones.", "k": "PDF a Excel · Archivos de ancho fijo · Importadores" },
+    { "t": "Presencia digital", "d": "Cartas con QR y sitios para comercios: fotos, buscador, versión en inglés y precios que se cambian desde el celular.", "k": "Carta QR · Landing · Catálogo con pedido por WhatsApp" }
+  ],
+  "projects": [
+    {
+      "id": "clubos", "n": "01", "kind": "Producto SaaS", "title": "ClubOS",
+      "lead": "Gestión integral para clubes de pádel.",
+      "text": "Agenda de canchas, reservas, caja, buffet, tesorería y reportes. Cada club trabaja aislado de los demás dentro de la misma plataforma, y sus jugadores reservan desde una app móvil.",
+      "points": ["Aislamiento por club con Row Level Security en PostgreSQL", "Autenticación JWT y permisos por rol", "App móvil para jugadores con reservas públicas", "Despliegue en producción en Railway"],
+      "stack": "NestJS · Prisma · PostgreSQL · Next.js · React Native",
+      "video": "clubos-agenda", "ratio": "wide", "note": "Datos de ejemplo"
+    },
+    {
+      "id": "gestion", "n": "02", "kind": "Sistema de escritorio · en uso", "title": "Gestión administrativa y contable",
+      "lead": "Para una empresa de servicios con varias sedes.",
+      "text": "Un sistema que se usa todos los días y reemplazó planillas sueltas. Concentra los cobros, las transferencias y las cuentas corrientes, y deja la conciliación lista para el cierre.",
+      "points": ["Cobros con tarjeta, transferencias recibidas y cuentas corrientes", "Conciliación y tesorería", "Reportes para el cierre", "Diseñado junto a quienes lo usan"],
+      "stack": "Python · CustomTkinter",
+      "visual": "modules"
+    },
+    {
+      "id": "automatizacion", "n": "03", "kind": "Automatización", "title": "De documento sucio a dato limpio",
+      "lead": "Lo que se copiaba a mano ahora sale solo.",
+      "text": "Conversor de extractos bancarios de PDF a Excel, unificación de extractos de distintos bancos y generación de archivos de ancho fijo para presentaciones impositivas. Un importador de comprobantes hacia el ERP está en desarrollo.",
+      "points": ["Extractos de varios bancos en un único formato", "Archivos listos para presentar, sin carga manual", "Menos errores de tipeo en el cierre"],
+      "stack": "Python · Excel",
+      "visual": "convert"
+    },
+    {
+      "id": "finora", "n": "04", "kind": "Producto SaaS", "title": "Finora",
+      "lead": "ERP para pymes argentinas.",
+      "text": "Cuentas a cobrar y a pagar, ciclos de clientes y compras, importador de movimientos bancarios y un algoritmo de matching que propone la conciliación. Un dashboard consolida todo.",
+      "points": ["Importador de movimientos bancarios", "Matching automático para conciliar", "Dashboard consolidado"],
+      "stack": "Next.js 15 · Prisma · PostgreSQL",
+      "visual": "match"
+    }
+  ],
+  "cartas": [
+    { "name": "Parrilla de asador", "video": "carta-parrilla-co" },
+    { "name": "Parrilla de brasas", "video": "carta-brasa" },
+    { "name": "Bodegón", "video": "carta-clotilde" },
+    { "name": "Cocina de autor", "video": "carta-barrika" }
+  ],
+  "more": [
+    { "t": "Huellar", "k": "App móvil", "d": "Mapa de lugares pet friendly en Buenos Aires con check-ins, comunidad, beneficios y QR. Expo, Supabase y mapa propio sin costo de licencias.", "video": "huellar" },
+    { "t": "Job Radar", "k": "Automatización", "d": "Bot que busca avisos de empleo, los puntúa contra perfiles de CV y avisa por Telegram. Incluye un sitio con login y armado de perfil por IA a partir de un CV." },
+    { "t": "PadelPRO", "k": "Gestión", "d": "Refactor a arquitectura multi-tenant, con avisos por WhatsApp y correo para clientes." }
+  ],
+  "process": [
+    { "t": "Entender el circuito", "d": "Antes de escribir código, recorro cómo se hace hoy: quién carga, quién controla, dónde se pierde tiempo." },
+    { "t": "Una primera versión que se use", "d": "Algo chico y real, con datos reales, que resuelva el paso más doloroso. No una presentación." },
+    { "t": "Ajustar con quien lo usa", "d": "Lo que se aprende en la primera semana de uso vale más que cualquier especificación." },
+    { "t": "Dejarlo funcionando", "d": "Desplegado, documentado y con una forma simple de pedir cambios." }
+  ],
+  "stack": ["TypeScript", "JavaScript", "Python", "SQL", "React", "Next.js", "React Native", "Node.js", "NestJS", "Express", "Prisma", "PostgreSQL", "MongoDB", "Docker", "Railway", "Git"]
+}
