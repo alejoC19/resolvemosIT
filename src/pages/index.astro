@@ -12,14 +12,14 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{site.title}</title>
   <meta name="description" content={site.description} />
-  <meta name="theme-color" content="#0a0b0d" />
+  <meta name="theme-color" content="#ffffff" />
   <meta property="og:title" content={site.title} />
   <meta property="og:description" content={site.description} />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/media/clubos-agenda.jpg" />
+  <meta property="og:image" content="/media/clubos-agendar.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0b0d'/%3E%3Cpath d='M8 23 16 8l8 15' stroke='%23ff5b1f' stroke-width='3' fill='none'/%3E%3C/svg%3E" />
-  <link rel="preload" as="image" href="/media/clubos-agenda.jpg" fetchpriority="high" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ffffff'/%3E%3Cpath d='M8 23 16 8l8 15' stroke='%235b50e6' stroke-width='3' fill='none'/%3E%3C/svg%3E" />
+  <link rel="preload" as="image" href="/media/clubos-agendar.jpg" fetchpriority="high" />
   <script type="application/ld+json" set:html={JSON.stringify(ld)} />
   <script is:inline>document.documentElement.classList.add('js')</script>
 </head>
@@ -33,9 +33,10 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
 
   <main id="top">
     <section class="hero">
+      <div class="hero-bg" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <div class="wrap hero-top">
         <p class="mono rv">{site.role} · {site.city}</p>
-        <h1 class="display h-xl rv" style="margin:1.2rem 0 0">Software que reemplaza <span class="acc">la planilla.</span></h1>
+        <h1 class="display h-xl rv" style="margin:1.2rem 0 0">Software que reemplaza <span class="grad">la planilla.</span></h1>
         <div class="hero-meta rv">
           <p class="lead" style="margin:0">Sistemas de gestión, automatizaciones administrativas y cartas digitales para negocios argentinos. Vengo del área contable, y se nota en cómo están armados.</p>
           <div class="stats">{site.stats.map((s) => <div><b>{s.n}</b><span>{s.l}</span></div>)}</div>
@@ -43,9 +44,9 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
       </div>
       <div class="hero-stage" data-hero>
         <div class="hero-vid" data-hero-vid>
-          <video src="/media/clubos-agenda.mp4" poster="/media/clubos-agenda.jpg" muted loop playsinline preload="metadata" aria-label="Agenda de canchas de ClubOS en funcionamiento"></video>
+          <video src="/media/clubos-agendar.mp4" poster="/media/clubos-agendar.jpg" muted loop playsinline preload="metadata" aria-label="Agenda de canchas de ClubOS en funcionamiento"></video>
         </div>
-        <div class="wrap hero-cap"><span class="mono">ClubOS · agenda de canchas</span><span class="mono">Datos de ejemplo</span></div>
+        <div class="wrap hero-cap"><span class="mono">ClubOS · agendando un turno, en vivo</span><span class="mono">Datos de ejemplo</span></div>
       </div>
     </section>
 
@@ -59,7 +60,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
     <section id="trabajos" aria-label="Trabajos">
       <div class="wrap" style="padding-top:clamp(2rem,5vw,4rem);padding-bottom:2rem"><p class="mono">02 — Trabajos</p></div>
       {site.projects.map((p) => (
-        <article class="proj" id={p.id}>
+        <article class="proj" id={p.id} data-tone={p.tone}>
           <div class="wrap proj-in">
             <div>
               <p class="mono">{p.n} · {p.kind}</p>
@@ -68,17 +69,18 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
               <p class="t">{p.text}</p>
               <ul class="pts">{p.points.map((x) => <li>{x}</li>)}</ul>
               <p class="stk">{p.stack}</p>
+              <button class="more-btn" type="button" data-open={p.id}>Ver el trabajo <span aria-hidden="true">→</span></button>
             </div>
             <div class="pv" data-pv={p.visual ?? 'video'}>
               {p.video && (
                 <div>
-                  <div class="win"><div class="win-bar"><i></i><i></i><i></i><span class="mono">{p.title}</span></div>
+                  <div class="win clk" data-open={p.id} role="button" tabindex="0" aria-label={`Abrir ${p.title}`}><div class="win-bar"><i></i><i></i><i></i><span class="mono">{p.title}</span></div>
                     <video src={`/media/${p.video}.mp4`} poster={`/media/${p.video}.jpg`} muted loop playsinline preload="none" data-lazyvid aria-label={`${p.title} en funcionamiento`}></video></div>
                   <p class="cap mono"><span>Grabación real</span><span>{p.note}</span></p>
                 </div>
               )}
               {p.visual === 'modules' && (
-                <div><div class="win"><div class="win-bar"><i></i><i></i><i></i><span class="mono">Sistema de gestión</span></div>
+                <div><div class="win clk" data-open={p.id} role="button" tabindex="0" aria-label={`Abrir ${p.title}`}><div class="win-bar"><i></i><i></i><i></i><span class="mono">Sistema de gestión</span></div>
                   <div class="sch"><div class="mod-grid">
                     <div class="mod-list"><div>Cobros con tarjeta</div><div>Transferencias recibidas</div><div>Cuentas corrientes</div><div>Conciliación</div><div>Tesorería</div><div>Reportes</div></div>
                     <div class="mod-panel"><div class="bar" style="--w:92%"></div><div class="bar" style="--w:61%"></div><div class="bar" style="--w:78%"></div><div class="bar" style="--w:44%"></div><div class="bar" style="--w:85%"></div><div class="bar" style="--w:33%"></div><div class="bar" style="--w:70%"></div></div>
@@ -86,7 +88,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
                   <p class="cap mono"><span>Esquema de módulos</span><span>El sistema real es de uso interno</span></p></div>
               )}
               {p.visual === 'convert' && (
-                <div><div class="win"><div class="win-bar"><i></i><i></i><i></i><span class="mono">Conversor</span></div>
+                <div><div class="win clk" data-open={p.id} role="button" tabindex="0" aria-label={`Abrir ${p.title}`}><div class="win-bar"><i></i><i></i><i></i><span class="mono">Conversor</span></div>
                   <div class="sch"><div class="docs">
                     <div class="doc"><h4>extracto.pdf</h4><div class="row ghost"><span>03/11 TRANSF REC</span><span>184.500,00</span></div><div class="row ghost"><span>03/11 COMISION</span><span>-1.240,00</span></div><div class="row ghost"><span>04/11 DEP EFVO</span><span>96.000,00</span></div><div class="row ghost"><span>04/11 IMP DB/CR</span><span>-612,30</span></div></div>
                     <div class="arr" aria-hidden="true">→</div>
@@ -95,7 +97,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
                   <p class="cap mono"><span>Ejemplo ilustrativo</span><span>Datos inventados</span></p></div>
               )}
               {p.visual === 'match' && (
-                <div><div class="win"><div class="win-bar"><i></i><i></i><i></i><span class="mono">Conciliación</span></div>
+                <div><div class="win clk" data-open={p.id} role="button" tabindex="0" aria-label={`Abrir ${p.title}`}><div class="win-bar"><i></i><i></i><i></i><span class="mono">Conciliación</span></div>
                   <div class="sch"><div class="pair" data-pair>
                     <svg aria-hidden="true"><path data-l /><path data-l /><path data-l /></svg>
                     <div class="doc"><h4>Banco</h4><div class="row" data-a><span>03/11</span><span>$ 184.500</span></div><div class="row" data-a><span>04/11</span><span>$ 96.000</span></div><div class="row" data-a><span>05/11</span><span>$ 51.300</span></div></div>
@@ -117,7 +119,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
         </div>
         <div class="track" data-track>
           {site.cartas.map((c) => (
-            <figure class="phone" style="margin:0"><div class="fr"><video src={`/media/${c.video}.mp4`} poster={`/media/${c.video}.jpg`} muted loop playsinline preload="none" data-lazyvid aria-label={`Carta digital: ${c.name}`}></video></div><figcaption class="mono">{c.name}</figcaption></figure>
+            <figure class="phone"><button class="fr" type="button" data-open={c.id} aria-label={`Abrir carta: ${c.name}`}><video src={`/media/${c.video}.mp4`} poster={`/media/${c.video}.jpg`} muted loop playsinline preload="none" data-lazyvid aria-label={`Carta digital: ${c.name}`}></video></button><figcaption class="mono">{c.name}</figcaption></figure>
           ))}
         </div>
       </div>
@@ -126,9 +128,9 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
     <section class="sec"><div class="wrap">
       <div class="sec-head"><h2 class="display h-lg rv" style="margin:0">Y más.</h2><p class="mono rv">06 — Otros proyectos</p></div>
       <div class="more">
-        <div class="win rv"><div class="win-bar"><i></i><i></i><i></i><span class="mono">Huellar</span></div>
+        <div class="win clk rv" data-open="huellar" role="button" tabindex="0" aria-label="Abrir Huellar"><div class="win-bar"><i></i><i></i><i></i><span class="mono">Huellar</span></div>
           <video src="/media/huellar.mp4" poster="/media/huellar.jpg" muted loop playsinline preload="none" data-lazyvid aria-label="Huellar, mapa de lugares pet friendly"></video></div>
-        <div>{site.more.map((m) => <div class="card rv"><span class="mono">{m.k}</span><h4>{m.t}</h4><p>{m.d}</p></div>)}</div>
+        <div>{site.more.map((m) => <button type="button" class="card rv" data-open={m.id}><span class="mono">{m.k}</span><h4>{m.t} <em aria-hidden="true">→</em></h4><p>{m.d}</p></button>)}</div>
       </div>
     </div></section>
 
@@ -158,6 +160,15 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
     </div></section>
   </main>
 
+  <dialog class="det" id="det" aria-labelledby="det-title">
+    <button class="det-x" type="button" data-close aria-label="Cerrar">✕</button>
+    <div class="det-in"><div class="det-media" id="det-media"></div><div class="det-body" id="det-body"></div></div>
+  </dialog>
+  <script type="application/json" id="items" set:html={JSON.stringify({ mail: site.email, items: [
+    ...site.projects.map((p) => ({ id: p.id, kind: p.kind, title: p.title, lead: p.lead, text: p.text, points: p.points, stack: p.stack, video: p.video ?? null })),
+    ...site.cartas.map((c) => ({ id: c.id, kind: 'Carta digital con QR', title: c.name, lead: 'Carta para el celular.', text: c.text, points: ['Foto de cada plato', 'Buscador y filtros', 'Versión en inglés', 'Precios desde una planilla'], stack: 'Astro · Tailwind · GSAP', video: c.video, url: c.url, phone: true })),
+    ...site.more.map((m) => ({ id: m.id, kind: m.k, title: m.t, lead: '', text: m.d, points: m.points, stack: m.stack, video: m.video ?? null, url: m.url ?? null })),
+  ] })} />
   <script>
     import gsap from 'gsap';
     import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -173,10 +184,11 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
     vids.forEach((v) => io.observe(v));
 
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let lenis: Lenis | null = null;
     if (!reduce) {
-      const lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
+      lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
       lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((t) => lenis.raf(t * 1000));
+      gsap.ticker.add((t) => lenis!.raf(t * 1000));
       gsap.ticker.lagSmoothing(0);
 
       // Aparición
@@ -230,6 +242,48 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
     } else {
       document.querySelectorAll<SVGPathElement>('[data-l]').forEach(() => {});
     }
+    // Detalle de cada trabajo
+    type Item = { id: string; kind: string; title: string; lead: string; text: string; points: string[]; stack: string; video: string | null; url?: string | null; phone?: boolean };
+    const raw = JSON.parse(document.getElementById('items')!.textContent!) as { mail: string; items: Item[] };
+    const byId = new Map(raw.items.map((i) => [i.id, i]));
+    const dlg = document.getElementById('det') as HTMLDialogElement;
+    const mediaEl = document.getElementById('det-media')!;
+    const bodyEl = document.getElementById('det-body')!;
+    const el = (tag: string, cls?: string, text?: string) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; };
+    function openItem(id: string) {
+      const it = byId.get(id); if (!it) return;
+      mediaEl.replaceChildren(); bodyEl.replaceChildren();
+      mediaEl.className = 'det-media' + (it.phone ? ' ph' : '');
+      if (it.video) {
+        const v = document.createElement('video');
+        v.src = `/media/${it.video}.mp4`; v.poster = `/media/${it.video}.jpg`;
+        v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true; v.setAttribute('aria-label', it.title);
+        mediaEl.append(v); v.play().catch(() => {});
+      } else {
+        const src = document.querySelector(`#${CSS.escape(id)} .pv .win`);
+        if (src) { const c = src.cloneNode(true) as HTMLElement; c.classList.remove('clk'); c.removeAttribute('role'); c.removeAttribute('tabindex'); mediaEl.append(c); }
+      }
+      bodyEl.append(el('p', 'mono', it.kind));
+      const h = el('h3', undefined, it.title); h.id = 'det-title'; bodyEl.append(h);
+      if (it.lead) bodyEl.append(el('p', 'lede', it.lead));
+      bodyEl.append(el('p', 't', it.text));
+      const ul = el('ul', 'pts'); it.points.forEach((x) => ul.append(el('li', undefined, x))); bodyEl.append(ul);
+      bodyEl.append(el('p', 'stk', it.stack));
+      const btns = el('div', 'btns');
+      if (it.url) { const a = el('a', 'btn p', 'Ver en vivo ↗') as HTMLAnchorElement; a.href = it.url; a.target = '_blank'; a.rel = 'noopener'; btns.append(a); }
+      const m = el('a', it.url ? 'btn' : 'btn p', 'Quiero algo así') as HTMLAnchorElement;
+      m.href = `mailto:${raw.mail}?subject=${encodeURIComponent('Consulta: algo como ' + it.title)}`; btns.append(m);
+      bodyEl.append(btns);
+      lenis?.stop(); dlg.showModal();
+    }
+    document.addEventListener('click', (e) => { const t = (e.target as HTMLElement).closest<HTMLElement>('[data-open]'); if (t) openItem(t.dataset.open!); });
+    document.addEventListener('keydown', (e) => {
+      const t = (e.target as HTMLElement).closest<HTMLElement>('[data-open][role="button"]');
+      if (t && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openItem(t.dataset.open!); }
+    });
+    dlg.addEventListener('click', (e) => { if (e.target === dlg || (e.target as HTMLElement).closest('[data-close]')) dlg.close(); });
+    dlg.addEventListener('close', () => { mediaEl.querySelectorAll('video').forEach((v) => v.pause()); mediaEl.replaceChildren(); lenis?.start(); });
+
     addEventListener('load', () => ScrollTrigger.refresh());
   </script>
 </body>
