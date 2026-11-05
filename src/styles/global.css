@@ -220,3 +220,8 @@ dialog.det::backdrop { background: rgb(40 36 80 / 0.35); backdrop-filter: blur(8
 .xl img:nth-child(2) { animation-delay: -4s; }
 @keyframes xlswap { 0%, 42% { opacity: 1; } 50%, 92% { opacity: 0; } 100% { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .xl img:nth-child(2) { display: none; } .xl img { animation: none; } }
+
+.feat { display: grid; gap: 0.7rem; max-width: 30rem; }
+.feat div { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.feat a { padding: 0.45rem 0.9rem; border-radius: 999px; background: rgb(255 255 255 / 0.75); border: 1px solid var(--line); font-size: 0.9rem; font-weight: 500; transition: background 0.2s, transform 0.2s; backdrop-filter: blur(6px); }
+.feat a:hover { background: #fff; transform: translateY(-2px); }

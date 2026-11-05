@@ -27,7 +27,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
   <header class="nav"><div class="wrap in">
     <a class="logo" href="#top">{site.brand}</a>
     <nav aria-label="Principal"><ul>
-      <li><a href="#que">Qué hago</a></li><li><a href="#trabajos">Trabajos</a></li><li><a href="#cartas">Cartas</a></li><li><a href="#contacto">Contacto</a></li>
+      <li><a href="#que">Qué hago</a></li><li><a href="#trabajos">Trabajos</a></li><li><a href="#contacto">Contacto</a></li>
     </ul></nav>
   </div></header>
 
@@ -39,7 +39,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
         <h1 class="display h-xl rv" style="margin:1.2rem 0 0">Software que reemplaza <span class="grad">la planilla.</span></h1>
         <div class="hero-meta rv">
           <p class="lead" style="margin:0">Sistemas de gestión, automatizaciones administrativas y cartas digitales para negocios argentinos. Vengo del área contable, y se nota en cómo están armados.</p>
-          <div class="stats">{site.stats.map((s) => <div><b>{s.n}</b><span>{s.l}</span></div>)}</div>
+          <div class="feat"><span class="mono">Algunos de nuestros proyectos</span><div>{site.featured.map((f) => <a href={f.h}>{f.t}</a>)}</div></div>
         </div>
       </div>
       <div class="hero-stage" data-hero>
@@ -119,8 +119,8 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
     <section class="cartas" id="cartas" data-cartas>
       <div class="cartas-pin" data-cartas-pin>
         <div class="wrap cartas-head">
-          <h2 class="display h-lg" style="margin:0">Cartas digitales<br />con QR.</h2>
-          <div><p class="lead" style="margin:0 0 .8rem">Fotos de cada plato, buscador, filtros, inglés y precios que se cambian desde el celular.</p><p class="mono">05 — Cuatro estilos, cuatro identidades</p></div>
+          <div><p class="mono" style="margin:0 0 .9rem">06 · Carta digital con QR</p><h2 class="display h-lg" style="margin:0">Cartas digitales<br />con QR.</h2></div>
+          <div><p class="lead" style="margin:0 0 .8rem">Fotos de cada plato, buscador, filtros, inglés y precios que se cambian desde el celular.</p><p class="mono">Cuatro estilos, cuatro identidades</p></div>
         </div>
         <div class="track" data-track>
           {site.cartas.map((c) => (
@@ -131,19 +131,19 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
     </section>
 
     <section class="sec"><div class="wrap">
-      <div class="sec-head"><h2 class="display h-lg rv" style="margin:0">Y más.</h2><p class="mono rv">06 — Otros proyectos</p></div>
+      <div class="sec-head"><h2 class="display h-lg rv" style="margin:0">Y más.</h2><p class="mono rv">03 — Otros trabajos</p></div>
       <div class="more">{site.more.map((m) => <button type="button" class="card rv" data-open={m.id}><span class="mono">{m.k}</span><h4>{m.t} <em aria-hidden="true">→</em></h4><p>{m.d}</p></button>)}</div>
     </div></section>
 
     <section class="sec" style="padding-top:0"><div class="wrap">
-      <div class="sec-head"><h2 class="display h-lg rv" style="margin:0">Cómo trabajo.</h2><p class="mono rv">07 — Proceso</p></div>
+      <div class="sec-head"><h2 class="display h-lg rv" style="margin:0">Cómo trabajo.</h2><p class="mono rv">04 — Proceso</p></div>
       <div class="proc" data-proc><div class="proc-line"><i data-proc-fill></i></div>
         {site.process.map((s) => <div class="step rv"><h4>{s.t}</h4><p>{s.d}</p></div>)}
       </div>
     </div></section>
 
     <section class="contact" id="contacto"><div class="wrap">
-      <p class="mono rv">08 — Contacto</p>
+      <p class="mono rv">05 — Contacto</p>
       <h2 class="display h-xl rv" style="margin:1rem 0 2rem">¿Qué se hace a mano en tu negocio?</h2>
       <a class="mail rv" href={mail}>{site.email}</a>
       <div class="btns rv">
@@ -158,7 +158,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
       </dl>
       <footer class="foot">
         <div><strong>{site.brand}</strong><p class="mono" style="margin:.5rem 0 0">{site.role} · {site.name}</p></div>
-        <nav aria-label="Pie"><a href="#que">Qué hago</a><a href="#trabajos">Trabajos</a><a href="#cartas">Cartas</a><a href="#contacto">Contacto</a></nav>
+        <nav aria-label="Pie"><a href="#que">Qué hago</a><a href="#trabajos">Trabajos</a><a href="#contacto">Contacto</a></nav>
         <div class="fc"><a href={`tel:+${site.phone}`}>{site.phoneDisplay}</a><a href={`mailto:${site.email}`}>{site.email}</a><a href={site.linkedin} target="_blank" rel="noopener">LinkedIn</a><a href={site.github} target="_blank" rel="noopener">GitHub · alejoC19</a></div>
         <p class="mono copy">© 2026 {site.brand} · {site.name} · {site.city} · Los datos de las demos son de ejemplo</p>
       </footer>

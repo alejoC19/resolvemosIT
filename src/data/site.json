@@ -8,20 +8,6 @@
   "city": "Buenos Aires, Argentina",
   "title": "Resolvemos IT — Sistemas de gestión a medida",
   "description": "Resolvemos IT desarrolla sistemas de gestión, automatizaciones administrativas y cartas digitales para negocios argentinos. Software hecho a la medida de cómo trabaja tu negocio.",
-  "stats": [
-    {
-      "n": "3",
-      "l": "productos SaaS multi-tenant"
-    },
-    {
-      "n": "4",
-      "l": "cartas digitales con QR"
-    },
-    {
-      "n": "1",
-      "l": "sistema propio en uso diario"
-    }
-  ],
   "services": [
     {
       "t": "Gestión",
@@ -209,5 +195,27 @@
   ],
   "phone": "5492273418842",
   "phoneDisplay": "+54 9 2273 41-8842",
-  "brand": "Resolvemos IT"
+  "brand": "Resolvemos IT",
+  "featured": [
+    {
+      "t": "PadelApp2",
+      "h": "#clubos"
+    },
+    {
+      "t": "Finora",
+      "h": "#finora"
+    },
+    {
+      "t": "Huellar",
+      "h": "#huellar"
+    },
+    {
+      "t": "Cartas digitales",
+      "h": "#cartas"
+    },
+    {
+      "t": "Excel de conciliación",
+      "h": "#automatizacion"
+    }
+  ]
 }
