@@ -144,11 +144,13 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
 
     <section class="contact" id="contacto"><div class="wrap">
       <p class="mono rv">05 — Contacto</p>
-      <h2 class="display h-xl rv" style="margin:1rem 0 2rem">¿Qué se hace a mano en tu negocio?</h2>
-      <a class="mail rv" href={mail}>{site.email}</a>
-      <div class="btns rv">
-        {wa && <a class="btn p" href={wa} target="_blank" rel="noopener">Escribir por WhatsApp</a>}
-        <a class={wa ? 'btn' : 'btn p'} href={mail}>Enviar un correo</a>
+      <h2 class="display h-xl rv" style="margin:1rem 0 2.2rem">Escribime<span class="grad">.</span></h2>
+      <div class="cta rv">
+        <svg class="arrow" viewBox="0 0 160 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="shaft" d="M2 20 C 40 4, 80 36, 150 20" /><path class="head" d="M138 9 L152 20 L138 31" /></svg>
+        <div class="btns" style="margin:0">
+          {wa && <a class="btn p" href={wa} target="_blank" rel="noopener">WhatsApp</a>}
+          <a class={wa ? 'btn' : 'btn p'} href={mail}>Correo</a>
+        </div>
       </div>
       <dl class="cdata rv">
         <div><dt class="mono">Celular y WhatsApp</dt><dd><a href={`tel:+${site.phone}`}>{site.phoneDisplay}</a></dd></div>

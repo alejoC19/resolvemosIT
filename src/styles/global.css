@@ -225,3 +225,12 @@ dialog.det::backdrop { background: rgb(40 36 80 / 0.35); backdrop-filter: blur(8
 .feat div { display: flex; flex-wrap: wrap; gap: 0.45rem; }
 .feat a { padding: 0.45rem 0.9rem; border-radius: 999px; background: rgb(255 255 255 / 0.75); border: 1px solid var(--line); font-size: 0.9rem; font-weight: 500; transition: background 0.2s, transform 0.2s; backdrop-filter: blur(6px); }
 .feat a:hover { background: #fff; transform: translateY(-2px); }
+
+.cta { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+.arrow { width: clamp(6rem, 14vw, 10rem); height: auto; color: var(--color-ink); overflow: visible; }
+.arrow .shaft { stroke-dasharray: 190; stroke-dashoffset: 190; animation: draw 3.2s cubic-bezier(.6,.1,.2,1) infinite; }
+.arrow .head { animation: nudge 3.2s ease-in-out infinite; }
+@keyframes draw { 0% { stroke-dashoffset: 190; } 45%, 85% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -190; } }
+@keyframes nudge { 0%, 40% { opacity: 0; transform: translateX(-10px); } 55%, 85% { opacity: 1; transform: none; } 92% { transform: translateX(5px); } 100% { opacity: 0; } }
+@media (max-width: 700px) { .arrow { transform: rotate(90deg); width: 4.5rem; margin: 0.4rem 0 1.6rem 1rem; } .cta { display: block; } }
+@media (prefers-reduced-motion: reduce) { .arrow .shaft { stroke-dashoffset: 0; animation: none; } .arrow .head { animation: none; } }
