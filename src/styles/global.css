@@ -82,6 +82,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .proj[data-tone='lav'] { background: linear-gradient(160deg, #f3f0ff 0%, #e4defc 55%, #fdeef6 100%); }
 .proj[data-tone='peach'] { background: linear-gradient(160deg, #fff4ec 0%, #ffe5d6 55%, #fff0f3 100%); }
 .proj[data-tone='mint'] { background: linear-gradient(160deg, #eefaf3 0%, #d6f2e4 55%, #e8f4ff 100%); }
+.proj[data-tone='rose'] { background: linear-gradient(160deg, #fff1f6 0%, #ffe0ea 55%, #fff4dc 100%); }
 .proj[data-tone='sky'] { background: linear-gradient(160deg, #eff7ff 0%, #d8eafd 55%, #f3efff 100%); }
 .proj-in { min-height: 100svh; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; padding: 6rem 0 3rem; }
 @media (min-width: 900px) { .proj { position: sticky; top: 0; border-radius: 28px 28px 0 0; box-shadow: 0 -20px 50px -30px rgb(60 50 140 / 0.3); } }
@@ -176,7 +177,16 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .btn:hover { background: var(--color-ink); color: #fff; }
 .btn.p { background: var(--color-ink); color: #fff; }
 .btn.p:hover { background: var(--color-acc); border-color: var(--color-acc); }
-.foot { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 6rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+.cdata { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.4rem 2rem; margin: 3.5rem 0 0; }
+.cdata div { border-top: 1px solid var(--line); padding-top: 0.8rem; }
+.cdata dd { margin: 0.3rem 0 0; font-size: 1.15rem; font-weight: 500; letter-spacing: -0.01em; word-break: break-word; }
+.cdata a:hover { color: var(--color-acc); }
+.foot { display: grid; grid-template-columns: 1.2fr 1fr 1.4fr; gap: 2rem; margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--line); font-size: 0.95rem; }
+.foot strong { font-size: 1.2rem; letter-spacing: -0.02em; }
+.foot nav, .foot .fc { display: grid; gap: 0.45rem; align-content: start; color: var(--color-mute); }
+.foot a:hover { color: var(--color-ink); }
+.foot .copy { grid-column: 1 / -1; padding-top: 1.4rem; border-top: 1px solid var(--line); margin: 0; }
+@media (max-width: 760px) { .foot { grid-template-columns: 1fr; } }
 
 /* detalle (modal) */
 dialog.det { width: min(94vw, 64rem); max-height: 92svh; padding: 0; border: 0; border-radius: 26px; background: #fff; color: var(--color-ink); box-shadow: 0 50px 120px -30px rgb(40 30 120 / 0.5); overflow: auto; }

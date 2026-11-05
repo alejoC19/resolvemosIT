@@ -46,14 +46,13 @@
       "kind": "Producto SaaS",
       "title": "ClubOS",
       "lead": "Gestión integral para clubes de pádel.",
-      "text": "Agenda de canchas, reservas, caja, buffet, tesorería y reportes. Cada club trabaja aislado de los demás dentro de la misma plataforma, y sus jugadores reservan desde una app móvil.",
+      "text": "Agenda de canchas, reservas, caja, buffet, tesorería y reportes. Cada club trabaja por separado dentro de la misma plataforma, y sus jugadores reservan desde el celular.",
       "points": [
-        "Aislamiento por club con Row Level Security en PostgreSQL",
-        "Autenticación JWT y permisos por rol",
-        "App móvil para jugadores con reservas públicas",
-        "Despliegue en producción en Railway"
+        "Agendado de turnos con cliente, duración y seña",
+        "Caja, buffet, tesorería y reportes del día",
+        "Cada club ve solo sus propios datos",
+        "App para que los jugadores reserven solos"
       ],
-      "stack": "NestJS · Prisma · PostgreSQL · Next.js · React Native",
       "video": "clubos-agendar",
       "ratio": "wide",
       "note": "Agendado real, base de datos propia",
@@ -67,12 +66,11 @@
       "lead": "Para una empresa de servicios con varias sedes.",
       "text": "Un sistema que se usa todos los días y reemplazó planillas sueltas. Concentra los cobros, las transferencias y las cuentas corrientes, y deja la conciliación lista para el cierre.",
       "points": [
-        "Cobros con tarjeta, transferencias recibidas y cuentas corrientes",
+        "Cobros con tarjeta, transferencias y cuentas corrientes",
         "Conciliación y tesorería",
-        "Reportes para el cierre",
-        "Diseñado junto a quienes lo usan"
+        "Reportes listos para el cierre",
+        "Armado junto a quienes lo usan todos los días"
       ],
-      "stack": "Python · CustomTkinter",
       "visual": "modules",
       "tone": "peach"
     },
@@ -82,13 +80,12 @@
       "kind": "Automatización",
       "title": "De documento sucio a dato limpio",
       "lead": "Lo que se copiaba a mano ahora sale solo.",
-      "text": "Conversor de extractos bancarios de PDF a Excel, unificación de extractos de distintos bancos y generación de archivos de ancho fijo para presentaciones impositivas. Un importador de comprobantes hacia el ERP está en desarrollo.",
+      "text": "Los extractos bancarios en PDF pasan a Excel, se unifican los de distintos bancos y se generan los archivos para presentaciones impositivas. Hoy se carga a mano; con esto sale solo.",
       "points": [
         "Extractos de varios bancos en un único formato",
         "Archivos listos para presentar, sin carga manual",
         "Menos errores de tipeo en el cierre"
       ],
-      "stack": "Python · Excel",
       "visual": "convert",
       "tone": "mint"
     },
@@ -100,13 +97,31 @@
       "lead": "ERP para pymes argentinas.",
       "text": "Cuentas a cobrar y a pagar, ciclos de clientes y compras, importador de movimientos bancarios y un algoritmo de matching que propone la conciliación. Un dashboard consolida todo.",
       "points": [
-        "Importador de movimientos bancarios",
-        "Matching automático para conciliar",
-        "Dashboard consolidado"
+        "Cuentas a cobrar y a pagar",
+        "Carga de movimientos del banco",
+        "Sugerencia automática de conciliación",
+        "Tablero con todo consolidado"
       ],
-      "stack": "Next.js 15 · Prisma · PostgreSQL",
       "visual": "match",
       "tone": "sky"
+    },
+    {
+      "id": "huellar",
+      "n": "05",
+      "kind": "App móvil",
+      "title": "Huellar",
+      "lead": "El mapa pet friendly de Buenos Aires.",
+      "text": "Plazas, cafés, bares, museos y veterinarias donde se puede ir con el perro, cargados y verificados por vecinos. Cada paseo suma huellas, y la comunidad comparte lugares, alertas y consejos.",
+      "points": [
+        "212 lugares pet friendly en el mapa",
+        "Check-ins en cada lugar y ranking de la comunidad",
+        "Beneficios y descuentos con QR",
+        "Salud y cuidado de la mascota, alertas y adopción"
+      ],
+      "video": "huellar",
+      "note": "App y sitio en producción",
+      "tone": "rose",
+      "url": "https://huellar-alejoc19.vercel.app"
     }
   ],
   "cartas": [
@@ -141,42 +156,27 @@
   ],
   "more": [
     {
-      "t": "Huellar",
-      "k": "App móvil",
-      "d": "Mapa de lugares pet friendly en Buenos Aires con check-ins, comunidad, beneficios y QR. Expo, Supabase y mapa propio sin costo de licencias.",
-      "video": "huellar",
-      "id": "huellar",
-      "url": "https://huellar-alejoc19.vercel.app",
-      "points": [
-        "Mapa con 212 lugares pet friendly",
-        "Check-ins, comunidad y beneficios",
-        "Descarga directa para Android"
-      ],
-      "stack": "React Native · Expo · Supabase"
-    },
-    {
       "t": "Job Radar",
       "k": "Automatización",
-      "d": "Bot que busca avisos de empleo, los puntúa contra perfiles de CV y avisa por Telegram. Incluye un sitio con login y armado de perfil por IA a partir de un CV.",
+      "d": "Un asistente que busca avisos de empleo, los puntúa contra tu perfil y te avisa por Telegram. También con sitio propio, login y armado del perfil a partir de un CV.",
       "id": "job-radar",
       "points": [
-        "Scrapers de Computrabajo y Bumeran",
-        "Puntaje por perfil y exportación a Excel",
-        "Login y armado de perfil por IA desde un CV"
-      ],
-      "stack": "Python · Supabase · FastAPI · Next.js"
+        "Busca en los principales portales de Argentina",
+        "Puntúa cada aviso contra tu perfil",
+        "Te avisa dos veces por día",
+        "Excel con los mejores resultados"
+      ]
     },
     {
       "t": "PadelPRO",
       "k": "Gestión",
-      "d": "Refactor a arquitectura multi-tenant, con avisos por WhatsApp y correo para clientes.",
+      "d": "Gestión para clubes de pádel con avisos por WhatsApp y correo a los clientes.",
       "id": "padelpro",
       "points": [
-        "Arquitectura multi-tenant",
+        "Varios clubes en una misma plataforma",
         "Avisos por WhatsApp y correo",
-        "Stack Node.js, Express y MongoDB"
-      ],
-      "stack": "Node.js · Express · MongoDB"
+        "Reservas y clientes"
+      ]
     }
   ],
   "process": [
@@ -197,22 +197,6 @@
       "d": "Desplegado, documentado y con una forma simple de pedir cambios."
     }
   ],
-  "stack": [
-    "TypeScript",
-    "JavaScript",
-    "Python",
-    "SQL",
-    "React",
-    "Next.js",
-    "React Native",
-    "Node.js",
-    "NestJS",
-    "Express",
-    "Prisma",
-    "PostgreSQL",
-    "MongoDB",
-    "Docker",
-    "Railway",
-    "Git"
-  ]
+  "phone": "5492273418842",
+  "phoneDisplay": "+54 9 2273 41-8842"
 }

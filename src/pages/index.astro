@@ -68,7 +68,6 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
               <p class="lede">{p.lead}</p>
               <p class="t">{p.text}</p>
               <ul class="pts">{p.points.map((x) => <li>{x}</li>)}</ul>
-              <p class="stk">{p.stack}</p>
               <button class="more-btn" type="button" data-open={p.id}>Ver el trabajo <span aria-hidden="true">→</span></button>
             </div>
             <div class="pv" data-pv={p.visual ?? 'video'}>
@@ -127,11 +126,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
 
     <section class="sec"><div class="wrap">
       <div class="sec-head"><h2 class="display h-lg rv" style="margin:0">Y más.</h2><p class="mono rv">06 — Otros proyectos</p></div>
-      <div class="more">
-        <div class="win clk rv" data-open="huellar" role="button" tabindex="0" aria-label="Abrir Huellar"><div class="win-bar"><i></i><i></i><i></i><span class="mono">Huellar</span></div>
-          <video src="/media/huellar.mp4" poster="/media/huellar.jpg" muted loop playsinline preload="none" data-lazyvid aria-label="Huellar, mapa de lugares pet friendly"></video></div>
-        <div>{site.more.map((m) => <button type="button" class="card rv" data-open={m.id}><span class="mono">{m.k}</span><h4>{m.t} <em aria-hidden="true">→</em></h4><p>{m.d}</p></button>)}</div>
-      </div>
+      <div class="more">{site.more.map((m) => <button type="button" class="card rv" data-open={m.id}><span class="mono">{m.k}</span><h4>{m.t} <em aria-hidden="true">→</em></h4><p>{m.d}</p></button>)}</div>
     </div></section>
 
     <section class="sec" style="padding-top:0"><div class="wrap">
@@ -141,22 +136,27 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
       </div>
     </div></section>
 
-    <section class="sec" style="padding-top:0"><div class="wrap">
-      <p class="mono rv" style="margin-bottom:1.2rem">08 — Con qué trabajo</p>
-      <div class="tags rv">{site.stack.map((t) => <span>{t}</span>)}</div>
-    </div></section>
-
     <section class="contact" id="contacto"><div class="wrap">
-      <p class="mono rv">09 — Contacto</p>
+      <p class="mono rv">08 — Contacto</p>
       <h2 class="display h-xl rv" style="margin:1rem 0 2rem">¿Qué se hace a mano en tu negocio?</h2>
       <a class="mail rv" href={mail}>{site.email}</a>
       <div class="btns rv">
         {wa && <a class="btn p" href={wa} target="_blank" rel="noopener">Escribir por WhatsApp</a>}
         <a class={wa ? 'btn' : 'btn p'} href={mail}>Enviar un correo</a>
-        <a class="btn" href={site.linkedin} target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href={site.github} target="_blank" rel="noopener">GitHub</a>
       </div>
-      <div class="foot"><span class="mono">{site.name} · {site.city}</span><span class="mono">Los datos de las demos son de ejemplo</span></div>
+      <dl class="cdata rv">
+        <div><dt class="mono">Celular y WhatsApp</dt><dd><a href={`tel:+${site.phone}`}>{site.phoneDisplay}</a></dd></div>
+        <div><dt class="mono">Correo</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div>
+        <div><dt class="mono">LinkedIn</dt><dd><a href={site.linkedin} target="_blank" rel="noopener">linkedin.com/in/alejocardozo</a></dd></div>
+        <div><dt class="mono">GitHub</dt><dd><a href={site.github} target="_blank" rel="noopener">github.com/alejoC19</a></dd></div>
+        <div><dt class="mono">Ubicación</dt><dd>{site.city}</dd></div>
+      </dl>
+      <footer class="foot">
+        <div><strong>{site.name}</strong><p class="mono" style="margin:.5rem 0 0">{site.role}</p></div>
+        <nav aria-label="Pie"><a href="#que">Qué hago</a><a href="#trabajos">Trabajos</a><a href="#cartas">Cartas</a><a href="#contacto">Contacto</a></nav>
+        <div class="fc"><a href={`tel:+${site.phone}`}>{site.phoneDisplay}</a><a href={`mailto:${site.email}`}>{site.email}</a><a href={site.linkedin} target="_blank" rel="noopener">LinkedIn</a><a href={site.github} target="_blank" rel="noopener">GitHub</a></div>
+        <p class="mono copy">© 2026 {site.name} · {site.city} · Los datos de las demos son de ejemplo</p>
+      </footer>
     </div></section>
   </main>
 
@@ -165,9 +165,9 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
     <div class="det-in"><div class="det-media" id="det-media"></div><div class="det-body" id="det-body"></div></div>
   </dialog>
   <script type="application/json" id="items" set:html={JSON.stringify({ mail: site.email, items: [
-    ...site.projects.map((p) => ({ id: p.id, kind: p.kind, title: p.title, lead: p.lead, text: p.text, points: p.points, stack: p.stack, video: p.video ?? null })),
-    ...site.cartas.map((c) => ({ id: c.id, kind: 'Carta digital con QR', title: c.name, lead: 'Carta para el celular.', text: c.text, points: ['Foto de cada plato', 'Buscador y filtros', 'Versión en inglés', 'Precios desde una planilla'], stack: 'Astro · Tailwind · GSAP', video: c.video, url: c.url, phone: true })),
-    ...site.more.map((m) => ({ id: m.id, kind: m.k, title: m.t, lead: '', text: m.d, points: m.points, stack: m.stack, video: m.video ?? null, url: m.url ?? null })),
+    ...site.projects.map((p) => ({ id: p.id, kind: p.kind, title: p.title, lead: p.lead, text: p.text, points: p.points, stack: '', video: p.video ?? null, url: p.url ?? null })),
+    ...site.cartas.map((c) => ({ id: c.id, kind: 'Carta digital con QR', title: c.name, lead: 'Carta para el celular.', text: c.text, points: ['Foto de cada plato', 'Buscador y filtros', 'Versión en inglés', 'Precios que se cambian desde el celular'], stack: '', video: c.video, url: c.url, phone: true })),
+    ...site.more.map((m) => ({ id: m.id, kind: m.k, title: m.t, lead: '', text: m.d, points: m.points, stack: '', video: null, url: null })),
   ] })} />
   <script>
     import gsap from 'gsap';
@@ -268,7 +268,6 @@ const ld = { '@context': 'https://schema.org', '@type': 'Person', name: site.nam
       if (it.lead) bodyEl.append(el('p', 'lede', it.lead));
       bodyEl.append(el('p', 't', it.text));
       const ul = el('ul', 'pts'); it.points.forEach((x) => ul.append(el('li', undefined, x))); bodyEl.append(ul);
-      bodyEl.append(el('p', 'stk', it.stack));
       const btns = el('div', 'btns');
       if (it.url) { const a = el('a', 'btn p', 'Ver en vivo ↗') as HTMLAnchorElement; a.href = it.url; a.target = '_blank'; a.rel = 'noopener'; btns.append(a); }
       const m = el('a', it.url ? 'btn' : 'btn p', 'Quiero algo así') as HTMLAnchorElement;
