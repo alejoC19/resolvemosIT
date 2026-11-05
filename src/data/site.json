@@ -55,9 +55,9 @@
       ],
       "video": "clubos-agendar",
       "ratio": "wide",
-      "note": "Agendado real, base de datos propia",
       "tone": "lav",
-      "url": "https://padelapp2.com"
+      "url": "https://padelapp2.com",
+      "sub": "Agenda de turnos y reservas"
     },
     {
       "id": "gestion",
@@ -74,8 +74,7 @@
       ],
       "tone": "peach",
       "video": "gestion-demo",
-      "note": "Datos inventados",
-      "capL": "Recreación de la interfaz"
+      "sub": "Cuentas corrientes y tesorería"
     },
     {
       "id": "automatizacion",
@@ -96,8 +95,7 @@
         "href": "/conciliacion-bancaria-ejemplo.xlsx",
         "label": "Descargar el Excel"
       },
-      "capL": "Excel de ejemplo",
-      "note": "Datos inventados"
+      "sub": "Conciliación bancaria en Excel"
     },
     {
       "id": "finora",
@@ -115,7 +113,7 @@
       ],
       "tone": "sky",
       "video": "finora",
-      "note": "Datos de muestra"
+      "sub": "Cobranzas, caja y conciliación"
     },
     {
       "id": "huellar",
@@ -131,9 +129,9 @@
         "Salud y cuidado de la mascota, alertas y adopción"
       ],
       "video": "huellar",
-      "note": "App y sitio en producción",
       "tone": "rose",
-      "url": "https://huellar-alejoc19.vercel.app"
+      "url": "https://huellar-alejoc19.vercel.app",
+      "sub": "Mapa de lugares pet friendly"
     }
   ],
   "cartas": [

@@ -46,7 +46,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
         <div class="hero-vid" data-hero-vid>
           <video src="/media/clubos-agendar.mp4" poster="/media/clubos-agendar.jpg" muted loop playsinline preload="metadata" aria-label="Agenda de canchas de PadelApp2 en funcionamiento"></video>
         </div>
-        <div class="wrap hero-cap"><span class="mono">PadelApp2 · agendando un turno, en vivo</span><span class="mono">Datos de ejemplo</span></div>
+        <div class="wrap hero-cap"><span class="mono">PadelApp2 · agenda de turnos</span><span class="mono"></span></div>
       </div>
     </section>
 
@@ -76,7 +76,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
                 <div>
                   <div class="win clk" data-open={p.id} role="button" tabindex="0" aria-label={`Abrir ${p.title}`}><div class="win-bar"><i></i><i></i><i></i><span class="mono">{p.title}</span></div>
                     <video src={`/media/${p.video}.mp4`} poster={`/media/${p.video}.jpg`} muted loop playsinline preload="none" data-lazyvid aria-label={`${p.title} en funcionamiento`}></video></div>
-                  <p class="cap mono"><span>{p.capL ?? 'Grabación real'}</span><span>{p.note}</span></p>
+                  <p class="cap mono"><span>{p.sub}</span></p>
                 </div>
               )}
               {p.visual === 'modules' && (
@@ -85,12 +85,12 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
                     <div class="mod-list"><div>Cobros con tarjeta</div><div>Transferencias recibidas</div><div>Cuentas corrientes</div><div>Conciliación</div><div>Tesorería</div><div>Reportes</div></div>
                     <div class="mod-panel"><div class="bar" style="--w:92%"></div><div class="bar" style="--w:61%"></div><div class="bar" style="--w:78%"></div><div class="bar" style="--w:44%"></div><div class="bar" style="--w:85%"></div><div class="bar" style="--w:33%"></div><div class="bar" style="--w:70%"></div></div>
                   </div></div></div>
-                  <p class="cap mono"><span>Esquema de módulos</span><span>El sistema real es de uso interno</span></p></div>
+                  <p class="cap mono"><span>{p.sub}</span></p></div>
               )}
               {p.visual === 'excel' && (
                 <div><div class="win clk" data-open={p.id} role="button" tabindex="0" aria-label={`Abrir ${p.title}`}><div class="win-bar"><i></i><i></i><i></i><span class="mono">conciliacion-bancaria.xlsx</span></div>
                   <div class="xl"><img src="/media/excel-resumen.jpg" alt="Hoja Resumen del Excel de conciliación" loading="lazy" /><img src="/media/excel-extracto.jpg" alt="Hoja Extracto con los movimientos conciliados" loading="lazy" /></div></div>
-                  <p class="cap mono"><span>{p.capL}</span><span>{p.note}</span></p></div>
+                  <p class="cap mono"><span>{p.sub}</span></p></div>
               )}
               {p.visual === 'convert' && (
                 <div><div class="win clk" data-open={p.id} role="button" tabindex="0" aria-label={`Abrir ${p.title}`}><div class="win-bar"><i></i><i></i><i></i><span class="mono">Conversor</span></div>
@@ -99,7 +99,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
                     <div class="arr" aria-hidden="true">→</div>
                     <div class="doc"><h4>unificado.xlsx</h4><div class="row hit"><span>2025-11-03 · Banco A</span><span>184500.00</span></div><div class="row hit"><span>2025-11-03 · Banco A</span><span>-1240.00</span></div><div class="row hit"><span>2025-11-04 · Banco B</span><span>96000.00</span></div><div class="row hit"><span>2025-11-04 · Banco B</span><span>-612.30</span></div></div>
                   </div></div></div>
-                  <p class="cap mono"><span>Ejemplo ilustrativo</span><span>Datos inventados</span></p></div>
+                  <p class="cap mono"><span>{p.sub}</span></p></div>
               )}
               {p.visual === 'match' && (
                 <div><div class="win clk" data-open={p.id} role="button" tabindex="0" aria-label={`Abrir ${p.title}`}><div class="win-bar"><i></i><i></i><i></i><span class="mono">Conciliación</span></div>
@@ -108,7 +108,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Organization', name: si
                     <div class="doc"><h4>Banco</h4><div class="row" data-a><span>03/11</span><span>$ 184.500</span></div><div class="row" data-a><span>04/11</span><span>$ 96.000</span></div><div class="row" data-a><span>05/11</span><span>$ 51.300</span></div></div>
                     <div class="doc"><h4>Comprobantes</h4><div class="row" data-b><span>FC 0001-0412</span><span>$ 184.500</span></div><div class="row" data-b><span>FC 0001-0415</span><span>$ 96.000</span></div><div class="row" data-b><span>FC 0001-0419</span><span>$ 51.300</span></div></div>
                   </div></div></div>
-                  <p class="cap mono"><span>Ejemplo ilustrativo</span><span>Datos inventados</span></p></div>
+                  <p class="cap mono"><span>{p.sub}</span></p></div>
               )}
             </div>
           </div>
